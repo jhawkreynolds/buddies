@@ -1,0 +1,12 @@
+June 28, 2023
+
+I am officially starting the project.
+My goal is to create a webpage that:
+- Leverages the existing public_html architecture
+- Has an encrypted user database that stores usernames, passwords, and user data
+- Once a user is logged in, allows for the collection of course information (course code, times, dates)
+- Allows Housing and Exec members to create Profile pages
+
+My highest priority for the project is I need to get a working encrypted login.
+I don't know how to do that right now, and if I can't make that work then this project is not worth continuing.
+I have an obligation to make this project secure.
