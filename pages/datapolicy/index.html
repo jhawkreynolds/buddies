@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- DATA POLICY PAGE -->
+<html>
+<head>
+    <link rel="stylesheet" href="../css/primary.css">
+</head>
+<body>
+    <!-- The heading at the top of the webpage -->
+   <div class="pageheader">
+        <h1>Data usage disclaimer</h1>
+   </div>
+   <div class="pagebody">
+        <h2>What data does this project collect?</h2>
+        <p>
+            This project collects the following data from all participants:<br>
+            - Your username<br>
+            - Your password (encrypted using a <i>hash function</i> in storage)<br>
+            - Your course codes and times, used for matchmaking<br>
+            This project optionally collects additional data if you customize your profile page:<br>
+            - Your display name<br>
+            - Your profile picture<br>
+            - Your pronoun display badges<br>
+            - Your profile description text<br>
+            - Your page theme<br> 
+        </p>
+        <h2>How does this project protect your password?</h2>
+        <p>
+            As previously stated, your password is encrypted before it is ever stored by this project.<br>
+            This is done through hashing, or a mathematical function that is difficult to reverse.<br>
+            Your hashed password would be near impossible to deduce your actual password from,<br>
+            but only your actual password could produce that same hashed password.<br>
+            Each time you log in, your password is compared against the stored hash to verify your identity.<br>
+        </p>
+        <h2>How is other data stored by this project?</h2>
+        <p>
+            User data besides your password is not encrypted by this project.<br>
+            This information is stored in plaintext alongside your hashed password in server storage.<br>
+        </p>
+        <h2>Why is your password encrypted, but not other information?</h2>
+        <p>
+            Encrypting your password is also imperative for your security from <i>credential stuffing</i> attacks.<br>
+            If user data was ever to be maliciously retrieved from server storage,<br>
+            any users who reused passwords on this site would be at risk of their accounts on other sites being breached.<br>
+            <br>
+            The primary reason that your other data is not encrypted is because I do not own the server this project is hosted on.<br>
+            This project is hosted on the Electrical Engineering and Computer Science Department's student servers.<br>
+            I cannot install any tool that does not currently exist on these servers,<br>
+            and some tools that would provide this security require adminstrator privileges I do not have.<br>
+            I was not able to find a tool suitable for this task during the development of this project.<br>
+            <br>
+            I can encrypt your password as you should be the only user capable of accessing that information.<br>
+            Encrypting other data is more complicated, as multiple users should be capable of accessing this data.<br>
+            <br>
+            I am not going to code a custom encryption tool for this data for an additional reason:<br>
+            <i>User transparency.</i><br>
+            I do not want to present your data as being more secure than it actually is,<br>
+            and unless I was using a tool that was used by industry professionals,<br>
+            I would find it dishonest to state that your data is stored encrypted.<br>  
+        </p>
+        <h2>Can I request my data?</h2>
+        <p>
+            Once this project is live, you will be able to request all data associated with your account.<br>
+            The button below will be able to create a .JSON file containing all user data.<br>
+        </p>
+        <button>Request user data</button>
+   </div>
+   <div class="pagefooter">
+        <p><i>Developed by Jack Reynolds in 2023 for Grace Pearson Hall</i></p>
+   </div>
+</body>    
+</html>
