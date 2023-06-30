@@ -10,3 +10,21 @@ My goal is to create a webpage that:
 My highest priority for the project is I need to get a working encrypted login.
 I don't know how to do that right now, and if I can't make that work then this project is not worth continuing.
 I have an obligation to make this project secure.
+
+June 30, 2023
+
+I have come to the decision on what I will be doing for encryption protection.
+
+It is within my power to encrypt people's passwords with hash_password() in PHP.
+Password protection is my primary concern for this project regardless,
+as credential stuffing (using a leaked password for entry on a secure site) is the most dangerous outcome of this project.
+I should also not be able to see someone else's password on this project period.
+
+I have thought about data encryption, and I don't think there is a reasonable way to do so with the architecture I have.
+I don't think I can run mySQL on the cycle servers with at least one superuser command.
+Additionally, the data does not seem like it would be of reasonable risk.
+For a person outside of the userbase, the project is inherently doxxing by its nature.
+Simply being a member reveals location data, and there's nothing I can do against that.
+The only concern of mine would be a member of the userbase getting access to the whole list,
+and that doesn't seem like preventing it would be super feasible.
+Besides, a user can edit their own data to find out this information. 
