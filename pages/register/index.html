@@ -11,10 +11,14 @@
    </div>
    <div class="pagebody">
         <form>
+            <p>Usernames and passwords may contain 3-16 characters,<br>
+               consisting of letters, numbers, and underscores.<br> 
+            </p>
+            <input type="hidden" name="action" value="register">
             <label for="username">Username: </label>
-            <input type="text" id="username" name="username"><br>
+            <input type="text" id="username" name="username" autocomplete="off" pattern="\w{3,16}" required><br>
             <label for="password">Password: </label>
-            <input type="password" id="password" name="password"><br>
+            <input type="password" id="password" name="password" autocomplete="off" pattern="\w{3,16}" required><br>
             <input type="submit" value="Submit">
         </form>
    </div>
