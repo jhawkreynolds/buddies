@@ -36,8 +36,7 @@ try{
             echo "<p>" . strval($length) . "</p>";
 
             chdir('../../data/session');
-            $filepath = $username . '.json';
-            /*
+            $filepath = $username . '.json';   
             $json_data = array(
                 "username" => $username,
                 "hash" => $hash
@@ -46,7 +45,6 @@ try{
             $file = fopen($filepath, 'w');
             fwrite($file, $json_string);
             fclose($file);
-            */
             break;
         case 'login':
             // input validation
