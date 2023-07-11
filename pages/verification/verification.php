@@ -41,11 +41,12 @@ try{
                 "username" => $username,
                 "hash" => $hash
             );
+            /*
             $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
             $file = fopen($filepath, 'w');
             fwrite($file, $json_string);
             fclose($file);
-
+            */
             break;
         case 'login':
             // input validation
