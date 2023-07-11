@@ -12,17 +12,62 @@ function is_invalid($input)
     return false;
 }
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+try{
+    $action = $_POST['action'];
 
-switch($_POST['action']) {
-    case 'register':
-        break;
-    case 'login':
-        break;
-    case 'change-password':
-        break;
-    default:
-        break;
+    switch($action) {
+        case 'register':
+            // input validation
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            if(is_invalid($username) || is_invalid($password))
+            {
+                header('Location: ../register/index.html');
+                exit();
+            }
+            // add user to registry
+            chdir('../../data/session')
+            $filepath = $username . '.json'
+            $json_data = [
+                "username" => $username,
+                "hash" => password_hash($password, PASSWORD_DEFAULT)
+            ];
+            $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
+            $file = fopen($filepath, 'w');
+            fwrite($file, $json_string);
+            fclose($file);
+            break;
+        case 'login':
+            // input validation
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            if(is_invalid($username) || is_invalid($password))
+            {
+                header('Location: ../login/index.html');
+                exit();
+            }
+            // create session cookie
+            break;
+        case 'change-password':
+            // input validation
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $new_password = $_POST['new_password'];
+            if(is_invalid($username) || is_invalid($password) || is_invalid($new_password))
+            {
+                header('Location: ../change-password/index.html');
+                exit();
+            }
+            // update password information
+            break;
+        case 'logout':
+            // destroy session cookie
+            break;
+        default:
+            break;
+    }
+}
+catch(Exception $e){
+
 }
 ?>
