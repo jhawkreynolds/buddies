@@ -26,11 +26,15 @@ try{
                 exit();
             }
             // add user to registry
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            echo $username . "\n";
+            echo $password . "\n";
+            echo $hash . "\n";
             chdir('../../data/session')
             $filepath = $username . '.json'
             $json_data = [
                 "username" => $username,
-                "hash" => password_hash($password, PASSWORD_DEFAULT)
+                "hash" => $hash
             ];
             $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
             $file = fopen($filepath, 'w');
