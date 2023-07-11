@@ -37,10 +37,10 @@ try{
 
             chdir('../../data/session')
             $filepath = $username . '.json'
-            $json_data = [
+            $json_data = array(
                 "username" => $username,
                 "hash" => $hash
-            ];
+            );
 
             /*
             $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
@@ -48,7 +48,7 @@ try{
             fwrite($file, $json_string);
             fclose($file);
             */
-            
+
             break;
         case 'login':
             // input validation
