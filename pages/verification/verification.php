@@ -27,19 +27,14 @@ try{
             }
             // add user to registry
             $hash = password_hash($password, PASSWORD_DEFAULT);
-
-            $length = mb_strlen($username, 'UTF-8');
-
-            chdir('../../data/session');
             
             $json_data = new stdClass();
             $json_data->username = $username;
             $json_data->hash = $hash;
 
-            $json_string = json_encode($json_data);
+            echo $json_string = json_encode($json_data);
 
-            echo $json_string;
-
+            //chdir('../../data/session');
             echo file_put_contents("$username.json", $json_string);
             break;
 
