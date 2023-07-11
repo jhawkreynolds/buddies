@@ -1,8 +1,6 @@
 <?php
 
 ini_set('display_errors', 1);
-echo `whoami`;
-
 
 // checks to make sure the string matches the required specifications:
 // - string is within 3 and 16 characters, inclusive
@@ -39,7 +37,7 @@ try{
             echo $json_string = json_encode($json_data);
 
             //chdir('../../data/session');
-            echo file_put_contents("$username.json", $json_string);
+            $output = shell_exec('python register.py')
             break;
 
 
