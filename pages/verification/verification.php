@@ -1,6 +1,8 @@
 <?php
 
 ini_set('display_errors', 1);
+echo `whoami`;
+
 
 // checks to make sure the string matches the required specifications:
 // - string is within 3 and 16 characters, inclusive
