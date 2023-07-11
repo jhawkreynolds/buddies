@@ -20,13 +20,11 @@ try{
             // input validation
             $username = $_POST['username'];
             $password = $_POST['password'];
-            /*
             if(is_invalid($username) || is_invalid($password))
             {
                 header('Location: ../register/index.html');
                 exit();
             }
-            */
             // add user to registry
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
