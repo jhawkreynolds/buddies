@@ -30,11 +30,6 @@ try{
 
             $length = mb_strlen($username, 'UTF-8');
 
-            echo "<p>" . $username . "</p>";
-            echo "<p>" . $password . "</p>";
-            echo "<p>" . $hash . "</p>";
-            echo "<p>" . strval($length) . "</p>";
-
             chdir('../../data/session');
             $filepath = "$username.json";
             echo "<p>" . $filepath . "</p>";   
@@ -42,9 +37,9 @@ try{
                 "username" => $username,
                 "hash" => $hash
             );
-            echo $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
+            $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
             $file = fopen($filepath, "w");
-            echo fwrite($file, $json_string);
+            //echo fwrite($file, $json_string);
             fclose($file);
             break;
         case 'login':
