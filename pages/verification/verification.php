@@ -9,7 +9,7 @@ function is_invalid($input)
     if($length > 2 && $length < 17){
         return !(preg_match('/^[A-Za-z0-9_]+$/', $input));
     }
-    return false;
+    return true;
 }
 
 try{
@@ -20,17 +20,19 @@ try{
             // input validation
             $username = $_POST['username'];
             $password = $_POST['password'];
+            /*
             if(is_invalid($username) || is_invalid($password))
             {
                 header('Location: ../register/index.html');
                 exit();
             }
+            */
             // add user to registry
             $hash = password_hash($password, PASSWORD_DEFAULT);
             echo "<p>" . $username . "</p>";
             echo "<p>" . $password . "</p>";
             echo "<p>" . $hash . "</p>";
-            exit();
+            /*
             chdir('../../data/session')
             $filepath = $username . '.json'
             $json_data = [
@@ -41,6 +43,7 @@ try{
             $file = fopen($filepath, 'w');
             fwrite($file, $json_string);
             fclose($file);
+            */
             break;
         case 'login':
             // input validation
