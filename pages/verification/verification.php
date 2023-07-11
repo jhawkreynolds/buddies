@@ -31,17 +31,20 @@ try{
             $length = mb_strlen($username, 'UTF-8');
 
             chdir('../../data/session');
-            $filepath = "$username.json";
-            echo "<p>" . $filepath . "</p>";   
-            $json_data = array(
-                "username" => $username,
-                "hash" => $hash
-            );
-            $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
-            $file = fopen($filepath, "w");
-            //echo fwrite($file, $json_string);
-            fclose($file);
+            
+            $json_data = new stdClass();
+            $json_data->username = $username;
+            $json_data->hash = $hash;
+
+            $json_string = json_encode($json_data);
+
+            echo $json_string;
+
+            file_put_contents("$username.json", $json_string);
             break;
+
+
+
         case 'login':
             // input validation
             $username = $_POST['username'];
