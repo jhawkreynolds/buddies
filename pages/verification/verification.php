@@ -36,7 +36,8 @@ try{
             echo "<p>" . strval($length) . "</p>";
 
             chdir('../../data/session');
-            echo $filepath = "$username.json";   
+            $filepath = "$username.json"
+            echo "<p>" . $filepath . "</p>";   
             $json_data = array(
                 "username" => $username,
                 "hash" => $hash
