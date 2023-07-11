@@ -29,9 +29,13 @@ try{
             */
             // add user to registry
             $hash = password_hash($password, PASSWORD_DEFAULT);
+
+            $length = strlen($user);
+
             echo "<p>" . $username . "</p>";
             echo "<p>" . $password . "</p>";
             echo "<p>" . $hash . "</p>";
+            echo "<p>" . strval($length) . "</p>";
             /*
             chdir('../../data/session')
             $filepath = $username . '.json'
