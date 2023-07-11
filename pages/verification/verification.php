@@ -40,7 +40,7 @@ try{
 
             echo $json_string;
 
-            file_put_contents("$username.json", $json_string);
+            echo file_put_contents("$username.json", $json_string);
             break;
 
 
