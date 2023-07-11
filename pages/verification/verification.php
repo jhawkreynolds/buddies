@@ -41,9 +41,9 @@ try{
                 "username" => $username,
                 "hash" => $hash
             );
-            $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
+            echo $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
             $file = fopen($filepath, "w");
-            fwrite($file, $json_string);
+            echo fwrite($file, $json_string);
             fclose($file);
             break;
         case 'login':
