@@ -30,7 +30,7 @@ try{
             // add user to registry
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
-            $length = strlen($user);
+            $length = mb_strlen($user);
 
             echo "<p>" . $username . "</p>";
             echo "<p>" . $password . "</p>";
