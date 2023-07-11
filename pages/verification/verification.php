@@ -4,8 +4,10 @@ $action = $_POST['action'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-/*
+
 $hash = password_hash($password, PASSWORD_DEFAULT);
+
+/*
 echo "<p>" . $action . "</p>";
 echo "<p>" . $username . "</p>";
 echo $"<p>" . $password . "</p>";
