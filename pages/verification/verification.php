@@ -36,8 +36,8 @@ try{
 
             echo $json_string = json_encode($json_data);
 
-            //chdir('../../data/session');
-            $output = shell_exec('python register.py')
+            chdir('../../../buddies-data/session');
+            file_put_contents("$username.json", $json_string);
             break;
 
 
