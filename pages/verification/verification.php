@@ -51,11 +51,9 @@ try{
                 exit();
             }
             // verify that given information matches stored information
-            $encoded_json = '';
-            try{
-                $encoded_json = file_get_contents("../../../buddies-data/session/$username.json");
-            }
-            catch(Exception $e){
+            $encoded_json = file_get_contents("../../../buddies-data/session/$username.json");
+            if($encoded_json == false)
+            {
                 // lookup failure. redirect the user
                 header('Location: ../error/usernotfound.html');
                 exit();
