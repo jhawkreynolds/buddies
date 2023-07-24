@@ -39,7 +39,7 @@ try{
             chdir('../../../buddies-data/session');
             file_put_contents("$username.json", $encoded_json);
             header('Location: ../success/registered.html');
-            break;
+            exit();
 
         case 'login':
             // input validation
@@ -58,18 +58,21 @@ try{
             catch(Exception $e){
                 // lookup failure. redirect the user
                 header('Location: ../error/usernotfound.html');
+                exit();
             }
             $decoded_json = json_decode($encoded_json);
             if(!(password_verify($password, $decoded_json->hash)))
             {
                 // given password could not produce hash. redirect the user
                 header('Location: ../error/invalidcredentials.html');
+                exit();
             } 
             // create session cookie
             setcookie('buddies-login', $encoded_json, 0, '', 'people.eecs.ku.edu', true, false);
             // login suggess. redirect the user
-            header('Location: ../success/loggedin.html'); 
-            break;
+            header('Location: ../success/loggedin.html');
+            exit();
+
         case 'change-password':
             // input validation
             $username = $_POST['username'];
