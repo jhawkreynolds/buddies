@@ -30,17 +30,16 @@ try{
             // add user to registry
             $hash = password_hash($password, PASSWORD_DEFAULT);
             
-            $json_data = new stdClass();
-            $json_data->username = $username;
-            $json_data->hash = $hash;
+            $decoded_json = new stdClass();
+            $decoded_json->username = $username;
+            $decoded_json->hash = $hash;
 
-            echo $json_string = json_encode($json_data);
+            $encoded_json = json_encode($decoded_json);
 
             chdir('../../../buddies-data/session');
-            file_put_contents("$username.json", $json_string);
+            file_put_contents("$username.json", $encoded_json);
+            header('Location: ../success/registered.html');
             break;
-
-
 
         case 'login':
             // input validation
@@ -51,7 +50,25 @@ try{
                 header('Location: ../login/index.html');
                 exit();
             }
+            // verify that given information matches stored information
+            $encoded_json = '';
+            try{
+                $encoded_json = file_get_contents("$username.json");
+            }
+            catch(Exception $e){
+                // lookup failure. redirect the user
+                header('Location: ../error/usernotfound.html');
+            }
+            $decoded_json = json_decode($encoded_json);
+            if(!(password_verify($password, $decoded_json->hash)))
+            {
+                // given password could not produce hash. redirect the user
+                header('Location: ../error/invalidcredentials.html');
+            } 
             // create session cookie
+            setcookie('buddies-login', $encoded_json, 0, '', 'people.eecs.ku.edu', true, false);
+            // login suggess. redirect the user
+            header('Location: ../success/loggedin.html'); 
             break;
         case 'change-password':
             // input validation
