@@ -10,7 +10,17 @@
         <h1>This is a test page</h1>
    </div>
    <div class="pagebody">
-        <p>This is a test paragraph.</p>
+     <form action="../verification/verification.php" method="POST">
+          <p>Usernames and passwords may contain 3-16 characters,<br>
+             consisting of letters, numbers, and underscores.<br> 
+          </p>
+          <input type="hidden" name="action" value="login">
+          <label for="username">Username: </label>
+          <input type="text" id="username" name="username" autocomplete="off" pattern="\w{3,16}" required><br>
+          <label for="password">Password: </label>
+          <input type="password" id="password" name="password" autocomplete="off" pattern="\w{3,16}" required><br>
+          <input type="submit" value="Submit">
+      </form>
    </div>
    <div class="pagefooter">
         <p><i>Developed by Jack Reynolds in 2023 for Grace Pearson Hall</i></p>
