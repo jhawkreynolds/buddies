@@ -84,7 +84,7 @@ function check_password($username, $password, $mode)
 function destroy_session_cookie($mode)
 {
     // set expiry date for cookie to one hour ago
-    setcookie('buddies-login', '', time() - 3600);
+    setcookie('buddies-login', '', time() - 3600, '', 'people.eecs.ku.edu', true, false);
     if($mode == 'logout')
     {
         header('Location: ../success/loggedout.html');
