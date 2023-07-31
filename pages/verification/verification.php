@@ -20,7 +20,7 @@ function is_invalid($input)
 // puts JSON in file
 // redirects user
 // runs exit() in ALL modes 
-function write_to_user($username, $password, $destination)
+function write_to_user($username, $password, $mode)
 {
     $hash = password_hash($password, PASSWORD_DEFAULT);
             
@@ -32,8 +32,16 @@ function write_to_user($username, $password, $destination)
 
     chdir('../../../buddies-data/session');
     file_put_contents("$username.json", $encoded_json);
-    header('Location: ../success/registered.html');
-    exit();
+    if($mode == 'register')
+    {
+        header('Location: ../success/registered.html');
+        exit();
+    }
+    elseif($mode == 'change-password')
+    {
+        header('Location: ../success/passwordchanged.html');
+        exit();
+    }
 }
 
 // accepts $username, $password, $mode
@@ -41,7 +49,7 @@ function write_to_user($username, $password, $destination)
 // tries to validate user credentials, on fail exits
 // on other conditions, user data is valid runs mode-specific code
 // runs exit() in SOME modes
-function check_password($username, $password)
+function check_password($username, $password, $mode)
 {
     $encoded_json = file_get_contents("../../../buddies-data/session/$username.json");
     if($encoded_json == false)
@@ -84,8 +92,7 @@ function destroy_session_cookie($mode)
     }
     elseif($mode == 'change-password')
     {
-        header('Location: ../success/passwordchanged.html');
-        exit();
+        return;
     }
 }
 
