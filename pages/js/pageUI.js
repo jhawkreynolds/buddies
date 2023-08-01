@@ -13,10 +13,12 @@ function build_pageheader()
     let pageheader_options_table = document.createElement("table");
     let pageheader_options_tbody = document.createElement("tbody");
     let pageheader_options_table_tr = document.createElement("tr");
+    pageheader_options_table_tr.setAttribute("class", "ribbon");
 
     // HOME BUTTON
     let pageheader_home_button = document.createElement("button");
     pageheader_home_button.setAttribute("onclick", "redirect('home')");
+    pageheader_home_button.setAttribute("class", "ribbonbutton");
     let pageheader_home_button_text = document.createTextNode("Home");
     pageheader_home_button.appendChild(pageheader_home_button_text);
 
@@ -30,6 +32,7 @@ function build_pageheader()
         // ACCOUNT BUTTON
         let pageheader_account_button = document.createElement("button");
         pageheader_account_button.setAttribute("onclick", "redirect('account')");
+        pageheader_account_button.setAttribute("class", "ribbonbutton");
         let pageheader_account_button_text = document.createTextNode("Account");
         pageheader_account_button.appendChild(pageheader_account_button_text);
 
@@ -41,6 +44,7 @@ function build_pageheader()
         // FIND BUTTON
         let pageheader_find_button = document.createElement("button");
         pageheader_find_button.setAttribute("onclick", "redirect('find')");
+        pageheader_find_button.setAttribute("class", "ribbonbutton");
         let pageheader_find_button_text = document.createTextNode("Find Buddies");
         pageheader_find_button.appendChild(pageheader_find_button_text);
 
@@ -52,6 +56,7 @@ function build_pageheader()
         // LOGOUT BUTTON
         let pageheader_logout_button = document.createElement("button");
         pageheader_logout_button.setAttribute("onclick", "redirect('logout')");
+        pageheader_logout_button.setAttribute("class", "ribbonbutton");
         let pageheader_logout_button_text = document.createTextNode("Log Out");
         pageheader_logout_button.appendChild(pageheader_logout_button_text);
 
@@ -66,6 +71,7 @@ function build_pageheader()
         // LOGIN BUTTON
         let pageheader_login_button = document.createElement("button");
         pageheader_login_button.setAttribute("onclick", "redirect('login')");
+        pageheader_login_button.setAttribute("class", "ribbonbutton");
         let pageheader_login_button_text = document.createTextNode("Log In");
         pageheader_login_button.appendChild(pageheader_login_button_text);
 
@@ -77,6 +83,7 @@ function build_pageheader()
         // REGISTER BUTTON
         let pageheader_register_button = document.createElement("button");
         pageheader_register_button.setAttribute("onclick", "redirect('register')");
+        pageheader_register_button.setAttribute("class", "ribbonbutton");
         let pageheader_register_button_text = document.createTextNode("Register");
         pageheader_register_button.appendChild(pageheader_register_button_text);
 
