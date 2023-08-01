@@ -9,3 +9,14 @@
     height: 106px;
     padding: 5px;
 }
+
+tr {
+    background-color: gray;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px; 
+}
+
+td {
+    width: 10%;
+}
