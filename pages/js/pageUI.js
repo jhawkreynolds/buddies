@@ -148,7 +148,11 @@ function is_logged_in()
 {
     // temporary code
     let cookie_value = get_cookie("buddies-login");
-    if(cookie_value == "") return false;
+    if(cookie_value == "")
+    {
+        console.log('false1');
+        return false;
+    }
     else
     {
         let cookie_JSON = JSON.parse(decodeURIComponent(cookie_value));
@@ -158,10 +162,15 @@ function is_logged_in()
         }
         catch(error){
             // someone has assigned the cookie to a different value.
+            console.log('false2');
             return false;
         }
         let http_JSON = load_doc(`../../../buddies-data/${username}.json`, http_request_json);
-        if(cookie_JSON.hash == http_JSON.hash) return true;
+        if(cookie_JSON.hash == http_JSON.hash)
+        {
+            console.log('true');
+            return true;
+        }
     }
 }
 
