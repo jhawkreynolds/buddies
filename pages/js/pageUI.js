@@ -23,7 +23,7 @@ function build_pageheader()
     // APPEND HOME BUTTON
     let pageheader_home_td = document.createElement("td");
     pageheader_home_td.appendChild(pageheader_home_button);
-    pageheader_options_table.appendChild(pageheader_home_td);
+    pageheader_options_table_tr.appendChild(pageheader_home_td);
     
     if(is_logged_in())
     {
@@ -36,7 +36,7 @@ function build_pageheader()
         // APPEND ACCOUNT BUTTON
         let pageheader_account_td = document.createElement("td");
         pageheader_account_td.appendChild(pageheader_account_button);
-        pageheader_options_table.appendChild(pageheader_account_td);
+        pageheader_options_table_tr.appendChild(pageheader_account_td);
 
         // FIND BUTTON
         let pageheader_find_button = document.createElement("button");
@@ -47,7 +47,7 @@ function build_pageheader()
         // APPEND FIND BUTTON
         let pageheader_find_td = document.createElement("td");
         pageheader_find_td.appendChild(pageheader_find_button);
-        pageheader_options_table.appendChild(pageheader_find_td);
+        pageheader_options_table_tr.appendChild(pageheader_find_td);
 
         // LOGOUT BUTTON
         let pageheader_logout_button = document.createElement("button");
@@ -58,7 +58,7 @@ function build_pageheader()
         // APPEND LOGOUT BUTTON
         let pageheader_logout_td = document.createElement("td");
         pageheader_logout_td.appendChild(pageheader_logout_button);
-        pageheader_options_table.appendChild(pageheader_logout_td);
+        pageheader_options_table_tr.appendChild(pageheader_logout_td);
 
     }
     else
@@ -72,7 +72,7 @@ function build_pageheader()
         // APPEND LOGIN BUTTON
         let pageheader_login_td = document.createElement("td");
         pageheader_login_td.appendChild(pageheader_login_button);
-        pageheader_options_table.appendChild(pageheader_login_td);
+        pageheader_options_table_tr.appendChild(pageheader_login_td);
 
         // REGISTER BUTTON
         let pageheader_register_button = document.createElement("button");
@@ -83,7 +83,7 @@ function build_pageheader()
         // APPEND REGISTER BUTTON
         let pageheader_register_td = document.createElement("td");
         pageheader_register_td.appendChild(pageheader_register_button);
-        pageheader_options_table.appendChild(pageheader_register_td);
+        pageheader_options_table_tr.appendChild(pageheader_register_td);
     }
 
     // FINISH CREATION
