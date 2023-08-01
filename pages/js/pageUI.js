@@ -147,5 +147,56 @@ function redirect(location)
 function is_logged_in()
 {
     // temporary code
-    return false;
+    let cookie_value = get_cookie("buddies-login");
+    if(cookie_value == "") return false;
+    else
+    {
+        let cookie_JSON = JSON.parse(decodeURIComponent(cookie_value));
+        let username = "";
+        try{
+            username = cookie_JSON.username; 
+        }
+        catch(error){
+            // someone has assigned the cookie to a different value.
+            return false;
+        }
+        let http_JSON = load_doc(`../../../buddies-data/${username}.json`, http_request_json);
+        if(cookie_JSON.hash == http_JSON.hash) return true;
+    }
+}
+
+// finds a cookie stored client-side
+// returns the cookie value if cookie exists
+// returns an empty string if cookie does not exist
+function get_cookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+// returns xttp.responseText as is
+function http_request_json(xhttp) {
+    return JSON.parse(xhttp.responseText);
+}
+
+// makes an AJAX call to url and runs cFunction with the data
+function load_doc(url, cFunction) {
+    var xhttp;
+    xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        cFunction(this);
+      }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
 }
