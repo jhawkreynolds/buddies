@@ -11,8 +11,8 @@ function build_pageheader()
 
     // OPTIONS TABLE
     let pageheader_options_table = document.createElement("table");
+    let pageheader_options_tbody = document.createElement("tbody");
     let pageheader_options_table_tr = document.createElement("tr");
-    pageheader_options_table.appendChild(pageheader_options_table_tr);
 
     // HOME BUTTON
     let pageheader_home_button = document.createElement("button");
@@ -86,6 +86,9 @@ function build_pageheader()
         pageheader_options_table.appendChild(pageheader_register_td);
     }
 
+    // FINISH CREATION
+    pageheader_options_tbody.appendChild(pageheader_options_table_tr);
+    pageheader_options_table.appendChild(pageheader_options_tbody);
     let pageheader = document.getElementById('pageheader');
     pageheader.appendChild(pageheader_heading);
     pageheader.appendChild(pageheader_options_table);    
