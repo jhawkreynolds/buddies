@@ -137,5 +137,5 @@ function redirect(location)
 function is_logged_in()
 {
     // temporary code
-    return true;
+    return false;
 }
