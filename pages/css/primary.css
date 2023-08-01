@@ -19,4 +19,11 @@
 
 .ribbonbutton {
     width: 80px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.ribbonbutton:focus {
+    display: none;
 }
