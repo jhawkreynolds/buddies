@@ -144,6 +144,7 @@ function redirect(location)
 
 // returns bool depending on whether the user is logged in
 // requires a check of the cookie
+var login_flag = false
 function is_logged_in()
 {
     // temporary code
@@ -165,7 +166,9 @@ function is_logged_in()
             console.log('false2');
             return false;
         }
-        return load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
+        login_flag = false;
+        load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
+        return login_flag;
     }
 }
 
@@ -189,11 +192,9 @@ function get_cookie(cname) {
 
 // returns xttp.responseText as is
 function http_request_json(xhttp, hash) {
-    return false;
     console.log(xhttp.responseText);
     let http_JSON = JSON.parse(xhttp.responseText);
-    //if(hash == http_JSON.hash) return true;
-    return false;
+    if(hash == http_JSON.hash) login_flag = true;
 }
 
 // makes an AJAX call to url and runs cFunction with the data
