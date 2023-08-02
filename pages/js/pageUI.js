@@ -194,7 +194,7 @@ function get_cookie(cname) {
 
 // returns xttp.responseText as is
 function http_request_json(xhttp) {
-    console.log(xhttp.responseText);
+    return xhttp.responseText;
 }
 
 // makes an AJAX call to url and runs cFunction with the data
@@ -203,7 +203,7 @@ function load_doc(url, cFunction) {
     xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        cFunction(this);
+        return cFunction(this);
       }
     };
     xhttp.open("GET", url, true);
