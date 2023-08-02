@@ -194,6 +194,7 @@ function get_cookie(cname) {
 
 // returns xttp.responseText as is
 function http_request_json(xhttp) {
+    console.log(xhttp.responseText);
     return xhttp.responseText;
 }
 
