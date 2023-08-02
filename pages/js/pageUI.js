@@ -165,7 +165,7 @@ function is_logged_in()
             console.log('false2');
             return false;
         }
-        let http_JSON = load_doc(`../../../buddies-data/${username}.json`, http_request_json);
+        let http_JSON = JSON.parse(load_doc(`../../../buddies-data/${username}.json`, http_request_json));
         if(cookie_JSON.hash == http_JSON.hash)
         {
             console.log('true');
@@ -194,7 +194,7 @@ function get_cookie(cname) {
 
 // returns xttp.responseText as is
 function http_request_json(xhttp) {
-    return JSON.parse(xhttp.responseText);
+    return xhttp.responseText;
 }
 
 // makes an AJAX call to url and runs cFunction with the data
