@@ -165,7 +165,7 @@ function is_logged_in()
             console.log('false2');
             return false;
         }
-        let http_JSON = JSON.parse(load_doc(`../../../buddies-data/${username}.json`, http_request_json));
+        let http_JSON = JSON.parse(load_doc(`../../../buddies-data/session/${username}.json`, http_request_json));
         if(cookie_JSON.hash == http_JSON.hash)
         {
             console.log('true');
