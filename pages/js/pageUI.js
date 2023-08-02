@@ -165,7 +165,7 @@ function is_logged_in()
             console.log('false2');
             return false;
         }
-        return load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookieJSON.hash);
+        return load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
     }
 }
 
