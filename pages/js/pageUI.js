@@ -168,6 +168,7 @@ function is_logged_in()
         }
         login_flag = false;
         load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
+        console.log('This should be second!');
         return login_flag;
     }
 }
@@ -208,5 +209,4 @@ function load_doc(url, cFunction, hash) {
     };
     xhttp.open("GET", url, true);
     xhttp.send();
-    console.log("Now I'm here!");
 }
