@@ -202,6 +202,7 @@ function load_doc(url, cFunction, hash) {
     xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
+        console.log("I'm here!");
         return false;
         //return cFunction(this, hash);
       }
