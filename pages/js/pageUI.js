@@ -165,12 +165,7 @@ function is_logged_in()
             console.log('false2');
             return false;
         }
-        let http_JSON = JSON.parse(load_doc(`../../../buddies-data/session/${username}.json`, http_request_json));
-        if(cookie_JSON.hash == http_JSON.hash)
-        {
-            console.log('true');
-            return true;
-        }
+        return load_doc(`../../../buddies-data/session/${username}.json`, http_request_json);
     }
 }
 
@@ -193,9 +188,11 @@ function get_cookie(cname) {
 }
 
 // returns xttp.responseText as is
-function http_request_json(xhttp) {
+function http_request_json(xhttp, hash) {
     console.log(xhttp.responseText);
-    return xhttp.responseText;
+    let httpJSON = JSON.parse(xhttp.responseText);
+    if(hash == httpJSON.hash) return true;
+    return false
 }
 
 // makes an AJAX call to url and runs cFunction with the data
