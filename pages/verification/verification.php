@@ -69,7 +69,7 @@ function check_password($username, $password, $mode)
     if($mode == 'login')
     { 
         // create session cookie
-        setcookie('buddies-login', $encoded_json, 0, '../', '/', true, false);
+        setcookie('buddies-login', $encoded_json, 0, '../../', '/', true, false);
         // login suggess. redirect the user
         header('Location: ../success/loggedin.html');
         exit();
