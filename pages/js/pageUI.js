@@ -165,7 +165,7 @@ function is_logged_in()
             console.log('false2');
             return false;
         }
-        return load_doc(`../../../buddies-data/session/${username}.json`, http_request_json);
+        return load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookieJSON.hash);
     }
 }
 
@@ -192,11 +192,11 @@ function http_request_json(xhttp, hash) {
     console.log(xhttp.responseText);
     let httpJSON = JSON.parse(xhttp.responseText);
     if(hash == httpJSON.hash) return true;
-    return false
+    return false;
 }
 
 // makes an AJAX call to url and runs cFunction with the data
-function load_doc(url, cFunction) {
+function load_doc(url, cFunction, hash) {
     var xhttp;
     xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
