@@ -208,4 +208,5 @@ function load_doc(url, cFunction, hash) {
     };
     xhttp.open("GET", url, true);
     xhttp.send();
+    console.log("Now I'm here!");
 }
