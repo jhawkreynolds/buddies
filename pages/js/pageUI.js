@@ -189,6 +189,7 @@ function get_cookie(cname) {
 
 // returns xttp.responseText as is
 function http_request_json(xhttp, hash) {
+    return false;
     console.log(xhttp.responseText);
     let http_JSON = JSON.parse(xhttp.responseText);
     //if(hash == http_JSON.hash) return true;
