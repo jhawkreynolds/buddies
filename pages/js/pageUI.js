@@ -194,7 +194,7 @@ function get_cookie(cname) {
 
 // returns xttp.responseText as is
 function http_request_json(xhttp) {
-    return xhttp.responseText;
+    console.log(xhttp.responseText);
 }
 
 // makes an AJAX call to url and runs cFunction with the data
