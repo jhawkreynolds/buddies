@@ -164,7 +164,6 @@ function is_logged_in(hash)
             return false;
         }
         load_doc(`../../../buddies-data/session/${username}.json`, http_request_json);
-        if(hash == cookie_JSON.hash) return true;
         return false;
     }
 }
