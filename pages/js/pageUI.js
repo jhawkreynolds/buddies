@@ -27,7 +27,7 @@ function build_pageheader()
     pageheader_home_td.appendChild(pageheader_home_button);
     pageheader_options_table_tr.appendChild(pageheader_home_td);
     
-    if(is_logged_in())
+    if(is_logged_in(""))
     {
         // ACCOUNT BUTTON
         let pageheader_account_button = document.createElement("button");
@@ -144,8 +144,7 @@ function redirect(location)
 
 // returns bool depending on whether the user is logged in
 // requires a check of the cookie
-var login_flag = false
-function is_logged_in()
+function is_logged_in(hash)
 {
     // temporary code
     let cookie_value = get_cookie("buddies-login");
@@ -164,11 +163,9 @@ function is_logged_in()
             // someone has assigned the cookie to a different value.
             return false;
         }
-        login_flag = false;
-        load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
-    
-        console.log('This should be second!');
-        return login_flag;
+        load_doc(`../../../buddies-data/session/${username}.json`, http_request_json);
+        if(hash == cookie_JSON.hash) return true;
+        return false;
     }
 }
 
@@ -191,14 +188,14 @@ function get_cookie(cname) {
 }
 
 // returns xttp.responseText as is
-function http_request_json(xhttp, hash) {
-    console.log(xhttp.responseText);
+function http_request_json(xhttp) {
     let http_JSON = JSON.parse(xhttp.responseText);
-    if(hash == http_JSON.hash) login_flag = true;
+    is_logged_in(http_JSON.hash);
+;
 }
 
 // makes an AJAX call to url and runs cFunction with the data
-function load_doc(url, cFunction, hash) {
+function load_doc(url, cFunction) {
     var xhttp;
     xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
