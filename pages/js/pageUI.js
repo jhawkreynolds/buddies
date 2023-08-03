@@ -151,7 +151,6 @@ function is_logged_in()
     let cookie_value = get_cookie("buddies-login");
     if(cookie_value == "")
     {
-        console.log('false1');
         return false;
     }
     else
@@ -163,12 +162,11 @@ function is_logged_in()
         }
         catch(error){
             // someone has assigned the cookie to a different value.
-            console.log('false2');
             return false;
         }
         login_flag = false;
         load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
-        wait(2000);
+    
         console.log('This should be second!');
         return login_flag;
     }
