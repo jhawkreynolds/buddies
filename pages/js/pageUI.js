@@ -168,6 +168,7 @@ function is_logged_in()
         }
         login_flag = false;
         load_doc(`../../../buddies-data/session/${username}.json`, http_request_json, cookie_JSON.hash);
+        wait(2000);
         console.log('This should be second!');
         return login_flag;
     }
